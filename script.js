@@ -365,10 +365,13 @@ async function carregarProdutos() {
             const produto = produtosApi.find(item => item.id === id);
 
             if (!produto) {
+                card.dataset.indisponivel = "true";
                 card.hidden = true;
                 return;
             }
 
+            card.dataset.indisponivel = "false";
+            card.hidden = false;
             card.querySelector("h3").textContent = produto.nome;
             card.querySelector("p").textContent = dinheiro(produto.preco);
 
@@ -393,7 +396,8 @@ if (busca) {
 
         document.querySelectorAll(".produto").forEach(item => {
             const nome = normalizar(item.querySelector("h3").textContent);
-            item.hidden = item.hidden || !termos.every(termo => nome.includes(termo));
+            item.hidden = item.dataset.indisponivel === "true" ||
+                !termos.every(termo => nome.includes(termo));
             if (!item.hidden) encontrados++;
         });
 
