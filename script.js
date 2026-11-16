@@ -98,10 +98,11 @@ function entrar(usuario) {
 
 function protegerPagina() {
     const usuario = lerUsuario();
-    const paginaCliente = document.getElementById("perfil") || document.getElementById("pedido");
+    const paginaPerfil = document.getElementById("perfil");
+    const paginaPedido = document.getElementById("pedido");
     const paginaEntregador = document.getElementById("painel-entregador");
 
-    if ((paginaCliente || paginaEntregador) && !usuario) {
+    if ((paginaPerfil || paginaPedido || paginaEntregador) && !usuario) {
         location.replace("login.html");
         return false;
     }
@@ -111,7 +112,7 @@ function protegerPagina() {
         return false;
     }
 
-    if (paginaCliente && usuario.tipoConta !== "Cliente") {
+    if (paginaPedido && usuario.tipoConta !== "Cliente") {
         location.replace("entregador.html");
         return false;
     }
