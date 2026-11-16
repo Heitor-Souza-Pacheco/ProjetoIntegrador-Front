@@ -18,11 +18,13 @@
 }
 
 .campo input,
+.campo select,
 .campo-busca {
   background: var(--campo);
 }
 
-:root[data-tema="escuro"] input::placeholder {
+:root[data-tema="escuro"] input::placeholder,
+:root[data-tema="escuro"] select {
   color: var(--texto-suave);
   opacity: 1;
 }
