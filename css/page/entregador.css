@@ -1,0 +1,71 @@
+#painel-entregador {
+  text-align: center;
+  padding: 125px 24px 70px;
+}
+
+#painel-entregador h2 {
+  font-size: 28px;
+  margin-top: -12px;
+}
+
+.descricao-painel {
+  margin: 22px auto 36px;
+  font: 16px/1.6 sans-serif;
+  color: var(--texto-suave);
+}
+
+#lista-pedidos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+  text-align: left;
+}
+
+.pedido-entregador {
+  padding: 24px;
+  border-radius: 22px;
+  background: var(--fundo);
+  box-shadow: 0 8px 24px rgba(116, 68, 69, 0.10);
+  font: 15px/1.6 sans-serif;
+}
+
+.pedido-entregador h3 {
+  color: var(--rosa);
+  font: 22px 'Hammersmith One', sans-serif;
+  margin-bottom: 12px;
+}
+
+.pedido-entregador p {
+  margin: 7px 0;
+  overflow-wrap: anywhere;
+}
+
+.pedido-entregador ul {
+  margin: 12px 0 18px 20px;
+}
+
+.pedido-entregador .botao {
+  margin-top: 8px;
+  width: 100%;
+  font-family: 'Holtwood One SC', serif;
+}
+
+.pedido-entregador .status-pedido {
+  color: var(--rosa);
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  #painel-entregador {
+    padding: 105px 16px 45px;
+  }
+
+  #painel-entregador h2 {
+    font-size: 20px;
+    margin-top: 0;
+  }
+
+  #lista-pedidos {
+    grid-template-columns: 1fr;
+  }
+}
