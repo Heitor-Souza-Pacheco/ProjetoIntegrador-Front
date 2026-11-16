@@ -15,6 +15,7 @@
 @import url(./css/page/perfil.css);
 @import url(./css/page/carrinho.css);
 @import url(./css/page/pedido.css);
+@import url(./css/page/entregador.css);
 
 /* TEMA E RESPONSIVIDADE */
 @import url(./css/global/tema.css);
