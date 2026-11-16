@@ -420,9 +420,14 @@ if (busca) {
 async function adicionarAoCarrinho(produtoId) {
     const usuario = lerUsuario();
 
-    if (!usuario || usuario.tipoConta !== "Cliente") {
+    if (!usuario) {
         sessionStorage.setItem("donnuts-voltar-carrinho", "true");
         location.href = "login.html";
+        return;
+    }
+
+    if (usuario.tipoConta !== "Cliente") {
+        aviso("Esta função está disponível apenas para contas de cliente.");
         return;
     }
 
@@ -450,6 +455,11 @@ async function carregarCarrinho() {
     const usuario = lerUsuario();
     if (!usuario) {
         location.replace("login.html");
+        return;
+    }
+
+    if (usuario.tipoConta !== "Cliente") {
+        location.replace("entregador.html");
         return;
     }
 
@@ -559,6 +569,11 @@ if (botaoPagamento) {
         if (!usuario) {
             sessionStorage.setItem("donnuts-voltar-carrinho", "true");
             location.href = "login.html";
+            return;
+        }
+
+        if (usuario.tipoConta !== "Cliente") {
+            aviso("Apenas clientes podem finalizar pedidos.");
             return;
         }
 
