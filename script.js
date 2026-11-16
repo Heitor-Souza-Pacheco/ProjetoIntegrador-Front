@@ -1,5 +1,5 @@
 const ENDERECO_API = ["localhost", "127.0.0.1"].includes(location.hostname)
-    ? "http://localhost:5000/api"
+    ? "http://localhost:5295/api"
     : "/api";
 
 const imagensProdutos = {
