@@ -1,4 +1,5 @@
-const ENDERECO_API = ["localhost", "127.0.0.1"].includes(location.hostname)
+const servidorLocal = ["localhost", "127.0.0.1"].includes(location.hostname);
+const ENDERECO_API = servidorLocal && location.port === "5500"
     ? "http://localhost:5295/api"
     : "/api";
 
@@ -596,7 +597,8 @@ if (botaoPagamento) {
 
 async function carregarPedido() {
     const resumo = document.getElementById("pedido-itens");
-    if (!resumo) return;
+    const usuario = lerUsuario();
+    if (!resumo || !usuario || usuario.tipoConta !== "Cliente") return;
 
     try {
         const pedidoSalvo = JSON.parse(sessionStorage.getItem("donnuts-pedido-atual") || "null");
