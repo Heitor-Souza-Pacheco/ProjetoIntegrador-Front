@@ -207,6 +207,10 @@ if (botaoSair) botaoSair.addEventListener("click", evento => {
 });
 
 const usuarioAtual = lerUsuario();
+const voltarPerfil = document.getElementById("voltar-perfil");
+if (voltarPerfil && usuarioAtual?.tipoConta === "Entregador") {
+    voltarPerfil.href = "entregador.html";
+}
 if (!protegerPagina()) {
     // A navegação já foi redirecionada para a tela compatível com o tipo de conta.
 }
